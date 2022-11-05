@@ -103,7 +103,7 @@ export function generateRandomEmployees(){
             generateMaxHours(),
             generateAvailability(store,shift,management)
         )
-        //createEmployeeElements(random_employee);
+        createEmployeeElements(random_employee);
         Schedule_Display.createWeekElement(random_employee);
         Schedule_Data.addItem(random_employee);
     }
