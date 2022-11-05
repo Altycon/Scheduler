@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scheduler</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/app.js" type="module"></script>
+</head>
+<body>
+    <header class="flex-row header-primary ">
+        <h1>The Scheduler</h1>
+        <nav class="flex-row">
+           
+            <button type="button" class="btn schedules-list_button js-schedules-list_button"><span>&#9776;</span>Schedules</button>
+            <button type="button" class="btn add-employee_button js-add-employee_button"><span>&#10057;</span>New Employee</button>
+            <button type="button" class="btn print-schedule_button js-print-schedule_button"><span>&#10066;</span>Print</button:button>
+            <button type="button" class="btn generate_button js-generate_button"><span>&#8912;</span>Generate</button>
+        </nav>   
+    </header>
+    <main>
+        <section class="employee_schedule js-employee-schedule">
+            <header class="grid row">
+                <!-- Employee Name and Weekday names-->
+                <h2 class="flex-centered">Employee Name</h3>
+                <p class="flex-centered">Sunday</p>
+                <p class="flex-centered">Monday</p>
+                <p class="flex-centered">Tuesday</p>
+                <p class="flex-centered">Wednesday</p>
+                <p class="flex-centered">Thursday</p>
+                <p class="flex-centered">Friday</p>
+                <p class="flex-centered">Saturday</p> 
+            </header>
+            <section class="schedule_display js-schedule_display flex-column">
+                <div class="management_container js-management_container">
+                   
+                </div>
+                <div class="employee_container js-employee_container">
+                   
+                </div>
+                    <div class="flex-row display-loader js-display-loader">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+            </section>
+            <section class="schedule_display_results js-scheudle_display_results">
+                <article class="grid row">
+                    <h3 class="flex-centered">Verification</h3>
+                    <div class="grid-centered">
+                        <p class="primo"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered hidden"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo hidden"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered hidden"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo hidden"><span>&#10031;</span>Primo</p>
+                        <p class="level"><span>&check;</span>Level</p>
+                        <p class="covered hidden"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo hidden"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo hidden"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered hidden"><span>&check;</span>Covered</p>
+                        <p class="temporary"><span>&quest;</span>Temporary</p>
+                        <p class="error hidden"><span>&#120;</span>Error</p>
+                    </div>
+                    <div class="grid-centered">
+                        <p class="primo hidden"><span>&#10031;</span>Primo</p>
+                        <p class="level hidden"><span>&check;</span>Level</p>
+                        <p class="covered hidden"><span>&check;</span>Covered</p>
+                        <p class="temporary hidden"><span>&quest;</span>Temporary</p>
+                        <p class="error"><span>&#120;</span>Error</p>
+                    </div>
+                </article>
+                </article>
+            </section>
+        </section>
+        <section class="employee_form_window js-employee_form_window">
+            <div class="overlay"></div>
+            <section class="content">
+                <header class="flex-row">
+                    <h2>New Employee Form</h2>
+                    <nav>
+                        <button type="button" class="btn form-cancel_button js-form-cancel_button">Cancel</button>
+                        <button type="button" class="btn form-reset_button js-form-reset_button">Reset</button>
+                    </nav>
+                </header>
+                <form action="" id="EmployeeForm" class="employee_form grid">
+                    <fieldset class="flex-column">
+                        <legend>Name</legend>
+                        <label for="FirstName">
+                            First Name:
+                            <input type="text" id="FirstName" name="firstname" autocomplete="off" required>
+                        </label>
+                        <label for="LastName">
+                            Last Name:
+                            <input type="text" id="LastName" name="lastname" autocomplete="off" required>
+                        </label>
+                    </fieldset>
+                    <fieldset class="flex-centered">
+                        <legend>Management</legend>
+                        <label for="ManagementCheckbox">
+                            Manager
+                            <input type="checkbox" id="ManagementCheckbox" name="management" autocomplete="off">
+                        </label>
+                    </fieldset>
+                    <fieldset class="flex-column">
+                        <legend>Store</legend>
+                        <label for="StoreChoice1">
+                            GoPuff
+                            <input type="radio" id="StoreChoice1" name="store" value="gopuff" autocomplete="off">
+                        </label>
+                        <label for="StoreChoice2">
+                            Bevmo
+                            <input type="radio" id="StoreChoice2" name="store" value="bevmo" autocomplete="off">
+                        </label>
+                    </fieldset>
+                    <fieldset class="flex-column">
+                        <legend>Shift</legend>
+                        <label for="OpeningChoice">
+                            Opening
+                            <input type="radio" id="OpeningChoice" name="shift" value="opening" autocomplete="off">
+                        </label>
+                        <label for="DayChoice">
+                            Day
+                            <input type="radio" id="DayChoice" name="shift" value="day" autocomplete="off">
+                        </label>
+                        <label for="EveningChoice">
+                            Evening
+                            <input type="radio" id="EveningChoice" name="shift" value="evening" autocomplete="off">
+                        </label>
+                        <label for="ClosingChoice">
+                            Closing
+                            <input type="radio" id="ClosingChoice" name="shift" value="closing" autocomplete="off">
+                        </label>
+                        <label for="FloatingChoice">
+                            Floating
+                            <input type="radio" id="FloatingChoice" name="shift" value="floating" autocomplete="off">
+                        </label>
+                    </fieldset>
+                    <fieldset class="flex-column">
+                        <legend>Hours</legend>
+                        <label for="MinHours">
+                            Minimum:
+                            <input type="number" id="MinHours" name="minhour" value="5" autocomplete="off">
+                        </label>
+                        <label for="MinHours">
+                            Maximum:
+                            <input type="number" id="MaxHours" name="maxhour" value="40" autocomplete="off">
+                        </label>
+                    </fieldset>
+                    <fieldset class="flex-column">
+                        <legend>Shift Type</legend>
+                        <label for="FullTimeChoice">
+                            Full-Time
+                            <input type="radio" id="FullTimeChoice" name="shift-type" value="Full-Time" autocomplete="off">
+                        </label>
+                        <label for="PartTimeChoice">
+                            Part-Time
+                            <input type="radio" id="PartTimeChoice" name="shift-type" value="Part-Time" autocomplete="off">
+                        </label>
+                    </fieldset>
+                    <fieldset class="availability flex-row">
+                        <legend>Availability</legend>
+                        <section class="flex-column js-availability-day">
+                            <h3>Sunday</h3>
+                            <label for="SundayDayOff">
+                                Day Off
+                                <input type="checkbox" name="sundayoff" id="SundayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="SundayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="sununavailable" id="SundayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="SundayStartTime">
+                                F:
+                                <input type="time" name="sunstart" id="SundayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="SundayStopTime">
+                                T:
+                                <input type="time" name="sunstop" id="SundayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Monday</h3>
+                            <label for="MondayDayOff">
+                                Day Off
+                                <input type="checkbox" name="mondayoff" id="MondayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="MondayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="monunavailable" id="MondayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="MondayStartTime">
+                                F:
+                                <input type="time" name="monstart" id="MondayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="MondayStopTime">
+                                T:
+                                <input type="time" name="monstop" id="MondayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Tuesday</h3>
+                            <label for="TuesdayDayOff">
+                                Day Off
+                                <input type="checkbox" name="tuedayoff" id="TuesdayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="TuesdayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="tueunavailable" id="TuesdayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="TuesdayStartTime">
+                                F:
+                                <input type="time" name="tuestart" id="TuesdayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="TuesdayStopTime">
+                                T:
+                                <input type="time" name="tuestop" id="TuesdayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Wednesday</h3>
+                            <label for="WednesdayDayOff">
+                                Day Off
+                                <input type="checkbox" name="weddayoff" id="WednesdayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="WednesdayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="wedunavailable" id="WednesdayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="WednesdayStartTime">
+                                F:
+                                <input type="time" name="wedstart" id="WednesdayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="WednesdayStopTime">
+                                T:
+                                <input type="time" name="wedstop" id="WednesdayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Thursday</h3>
+                            <label for="ThursdayDayOff">
+                                Day Off
+                                <input type="checkbox" name="thudayoff" id="ThursdayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="ThursdayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="thuunavailable" id="ThursdayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="ThursdayStartTime">
+                                F:
+                                <input type="time" name="thustart" id="ThursdayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="ThursdayStopTime">
+                                T:
+                                <input type="time" name="thustop" id="ThursdayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Friday</h3>
+                            <label for="FridayDayOff">
+                                Day Off
+                                <input type="checkbox" name="fridayoff" id="FridayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="FridayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="friunavailable" id="FridayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="FridayStartTime">
+                                F:
+                                <input type="time" name="fristart" id="FridayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="FridayStopTime">
+                                T:
+                                <input type="time" name="fristop" id="FridayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                        <section class="flex-column js-availability-day">
+                            <h3>Saturday</h3>
+                            <label for="SaturdayDayOff">
+                                Day Off
+                                <input type="checkbox" name="satdayoff" id="SaturdayDayOff" class="js-dayoff-checkbox" value="dayoff" autocomplete="off">
+                            </label>
+                            <label for="SaturdayUnavailable">
+                                Unavailable
+                                <input type="checkbox" name="satunavailable" id="SaturdayUnavailable" class="js-unavailable-checkbox" value="unavailable" autocomplete="off">
+                            </label>
+                            <label for="SaturdayStartTime">
+                                F:
+                                <input type="time" name="satstart" id="SaturdayStartTime" value="08:00" class="js-day-time-start" autocomplete="off">
+                            </label>
+                            <label for="SaturdayStopTime">
+                                T:
+                                <input type="time" name="satstop" id="SaturdayStopTime" value="17:00" class="js-day-time-stop" autocomplete="off">
+                            </label>
+                        </section>
+                    </fieldset>
+                    
+                </form>
+                <button type="button" class="btn form-submit_button js-form-submit_button">Submit</button>
+            </section>
+        </section>
+
+        <section class="employee_data_window js-employee_data_window">
+            <div class="overlay"></div>
+            <section class="content">
+                <header class="flex-row">
+                    <button type="button" class="btn data-delete_button js-data-delete_button">Delete</button>
+                    <button type="button" class="btn data-update_button js-data-update_button">Update</button>
+                    <h2 data-display="name">Employee Name</h2>
+                    <button type="button" class="btn data-close_button js-data-close_button">Close</button>
+                </header>
+                <section class="grid data_display">
+                    <article class="group-data1">
+                        <p data-display="store">GoPuff</p>
+                        <p data-display="management">Management</p>
+                    </article>
+                    <article class="flex-centered group-data2">
+                        <p data-display="shift">Full-Time</p>
+                        <!-- <p data-display="shift-type">Opening</p> -->
+                    </article>
+                    <article class="group-data3">
+                        <header class="flex-row">
+                            <h3>Schedule</h3>
+                            <p>Scheduled Hours: <span data-display="sdl-hours">30</span></p>
+                            <p>Available Hours: <span data-display="avl-hours">5</span></p>
+                        </header>
+                        <div class="flex-row  week-layout">
+                            <div class="schedule-day js-schedule-day">
+                                <p>Sun</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Mon</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Tue</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Wed</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Thu</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Fri</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="schedule-day js-schedule-day">
+                                <p>Sat</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                        </div>
+                        
+                    </article>
+                    <article class="group-data4">
+                        <header class="flex-row">
+                            <h3>Availability</h3>
+                            <p>Minumum Hours: <span data-display="minhours">5</span></p>
+                            <p>Maximum Hours: <span data-display="maxhours">35</span></p>
+                        </header>
+                        <div class="flex-row week-layout">
+                            <div class="availability-day js-availability-day">
+                                <p>Sun</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Mon</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Tue</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Wed</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Thu</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Fri</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                            <div class="availability-day js-availability-day">
+                                <p>Sat</p>
+                                <p>--:-- --</p>
+                                <p>--:-- --</p>
+                            </div>
+                        </div>
+                        
+                    </article>
+                </section>
+            </section>
+        </section>
+
+        <section class="employee_day_window js-employee_day_window">
+            <div class="overlay"></div>
+            <section class="content">
+                <header class="flex-row">
+                    <h2 class="js-time-display_employee-name">Employee Name</h2>
+                    <button type="button" class="btn day-close_button js-day-close_button">Close</button>
+                </header>
+                <form id="NewTimeForm" class="flex-column new-time_form" data-id="" data-day="" data-day-type="">
+                    <h3 class="js-new-time_day-title">Monday</h3>
+                    <section>
+                        <label for="NewFromTime">
+                            From:
+                            <input type="time" name="newfromtime" id="NewFromTime">
+                        </label>
+                        <label for="NewToTime">
+                            To:
+                            <input type="time" name="newtotime" id="NewToTime">
+                        </label>
+                    </section>
+                    <section class="flex-centered">
+                        <label for="NewDayoff">
+                            Day Off
+                            <input type="checkbox" name="newdayoff" id="NewDayoff">
+                        </label>
+                        <label for="NewUnavailable">
+                            Unavailable
+                            <input type="checkbox" name="newunavailable" id="newUnavailable" value="unavailable" autocomplete="off">
+                        </label>
+                        <label for="NewUnschedule">
+                            Un-Schedule
+                            <input type="checkbox" name="newunschedule" id="newUnschedule" value="unschedule" autocomplete="off">
+                        </label>
+                    </section>
+                </form>
+                <button type="button" class="btn day-update_button js-day-update_button">Update</button>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022</p>
+        <p>Clayton McDaniel</p>
+    </footer>
+    <aside class="notification js-notification">
+        <p>Successfully added new employee!</p>
+    </aside>
+</body>
+</html>
+
+<!-- <section class="schedule_display flex-column">
+    <div class="management_container js-management_container">
+        <article class="grid row" data-id="">
+            <h3 class="flex-centered" data-store-acronymn="GP" data-management="true">Johnathan Heiglestein</h3>
+            <p class="flex-centered available">Available</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered unavailable">Not Available</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+        </article>
+        <article class="grid row" data-id="">
+            <h3 class="flex-centered" data-store-acronymn="BM" data-management="true">Employee Name</h3>
+            <p class="flex-centered available">Available</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered unavailable">Not Available</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+        </article>
+    </div>
+    <div class="employee_container js-employee_container">
+        <article class="grid row" data-id="">
+            <h3 class="flex-centered" data-store-acronymn="GP" data-management="false">Employee Name</h3>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+        </article>
+        <article class="grid row" data-id="">
+            <h3 class="flex-centered" data-store-acronymn="BM" data-management="false">Employee Name</h3>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered dayoff">Day Off</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+            <p class="flex-centered scheduled">10:00AM-10:00PM</p>
+        </article>
+    </div>
+</section> -->
