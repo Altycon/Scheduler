@@ -104,7 +104,7 @@ export function generateRandomEmployees(){
             generateAvailability(store,shift,management)
         )
         //createEmployeeElements(random_employee);
-        Schedule.createWeekElement(random_employee);
+        Schedule_Display.createWeekElement(random_employee);
         Schedule_Data.addItem(random_employee);
     }
     PageNotification.notify('success', 'Generation complete');
